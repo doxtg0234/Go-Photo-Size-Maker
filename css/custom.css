@@ -86,7 +86,7 @@ body.dark-mode .passport-color{background:#121b2b}
 
 
 
-/* PhotoPassPro v30 — next-generation visual system */
+/* PSPMaker v30 — next-generation visual system */
 :root{
   --p30-bg:#f6f9ff;--p30-surface:rgba(255,255,255,.82);--p30-solid:#fff;
   --p30-ink:#0b1733;--p30-muted:#64748b;--p30-line:rgba(148,163,184,.24);
@@ -430,7 +430,7 @@ body.dark-mode .mobile-language-section{background:var(--surface-2);border-color
 .mobile-language-grid .language-option-flag svg{width:24px;height:17px;display:block;border-radius:3px;box-shadow:0 0 0 1px rgba(15,23,42,.10)}
 
 
-/* PhotoPassPro A4 print — single source of truth */
+/* PSPMaker A4 print — single source of truth */
 #a4PrintRoot{display:none!important}
 
 @media print{
