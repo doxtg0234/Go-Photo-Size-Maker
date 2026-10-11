@@ -1299,7 +1299,7 @@ body.dark-mode .country-footer:before{background:rgba(37,99,235,.11)}
 body.dark-mode .country-footer__social{background:rgba(18,27,43,.82);border-color:#2a3a50;box-shadow:none}
 body.dark-mode .country-footer__line{background:#26384d!important}
 
-/* PhotoPassPro branding fix */
+/* PSPMaker branding fix */
 .site-brand-logo{
   display:block;
   width:205px;
@@ -1351,7 +1351,7 @@ body.dark-mode .country-footer__line{background:#26384d!important}
   .footer-brand-logo{width:210px}
 }
 
-/* PhotoPassPro text logo — no image asset required */
+/* PSPMaker text logo — no image asset required */
 .logo,.country-footer__logo{gap:11px!important;text-decoration:none!important}
 .brand-mark,.footer-brand-mark,.mobile-brand-mark{
   display:grid;place-items:center;flex:0 0 auto;
@@ -1546,7 +1546,7 @@ body.dark-mode .drag-hint{background:rgba(0,0,0,.72)}
 }
 
 
-/* PhotoPassPro A4 print — single source of truth */
+/* PSPMaker A4 print — single source of truth */
 #a4PrintRoot{display:none!important}
 
 @media print{
