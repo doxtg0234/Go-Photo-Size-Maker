@@ -1,0 +1,3 @@
+*{box-sizing:border-box}body{margin:0;font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;color:#202124;background:#f7f8fa;line-height:1.65}.page{max-width:860px;margin:48px auto;padding:32px;background:#fff;border:1px solid #e5e7eb;border-radius:14px}h1{line-height:1.2}a{color:#155eef}
+/* Final mobile dropdown sizing fix */
+@media (max-width:430px){.mobile-accordion-content{max-height:0!important;overflow:hidden!important}.mobile-accordion.open .mobile-accordion-content{max-height:70vh!important;overflow-y:auto!important;padding:8px 7px 9px!important}}

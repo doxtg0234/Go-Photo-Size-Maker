@@ -1,0 +1,325 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Passport Size Photo Maker | PSPMaker</title>
+
+<!-- Technical SEO -->
+<link rel="canonical" href="https://pspmaker.in/">
+<meta name="robots" content="index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1">
+<meta name="googlebot" content="index,follow">
+<meta name="bingbot" content="index,follow">
+<meta name="referrer" content="strict-origin-when-cross-origin">
+
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Passport Size Photo Maker">
+<meta property="og:title" content="Passport Size Photo Maker">
+<meta property="og:url" content="https://pspmaker.in/">
+<meta property="og:image" content="//pspmaker.in/img.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Passport Size Photo Maker">
+<meta name="twitter:description" content="Visit Site, genres and movie-related information with a fast, responsive interface.">
+<meta name="twitter:image" content="https://pspmaker.in/img.png">
+<meta name="apple-mobile-web-app-status-bar" content="#202125">
+<meta name="theme-color" content="#202125">
+<meta name="msapplication-TileImage" content="//pspmaker.in/img.ico">
+<meta name="msapplication-TileColor" content="#00CCFF"/>
+<link rel="shortcut icon" href="//pspmaker.in/img.ico">
+<link rel="icon" type="image/png" href="//pspmaker.in/img.ico">
+<link rel="apple-touch-icon-precomposed" sizes="144x144" href="//pspmaker.in/img.ico">
+<link rel="apple-touch-icon-precomposed" sizes="114x114" href="//pspmaker.in/img.ico">
+<link rel="apple-touch-icon-precomposed" sizes="72x72" href="//pspmaker.in/img.ico">
+<link rel="apple-touch-icon-precomposed" href="//pspmaker.in/img.ico">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<script src="https://unpkg.com/lucide@latest"></script>
+<script async src="https://docs.opencv.org/4.x/opencv.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@mediapipe/selfie_segmentation/selfie_segmentation.js"></script>
+<link rel="stylesheet" href="css/style.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+<link rel="stylesheet" href="css/custom.css">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"WebApplication","name":"Passport Size Photo Maker","applicationCategory":"PhotographyApplication","operatingSystem":"Web","description":"Passport-size photos online for free. Easily crop, resize, and download high-quality photos for passports, visas, ID cards, and official documents in seconds.","offers":{"@type":"Offer","price":"0","priceCurrency":"USD"}}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"Can I make a passport-size photo online?","acceptedAnswer":{"@type":"Answer","text":"Yes. The tool can resize and prepare an uploaded image in a selected photo format directly in the browser."}},{"@type":"Question","name":"What size is a US passport photo?","acceptedAnswer":{"@type":"Answer","text":"The commonly used US passport photo format is 2 × 2 inches (51 × 51 mm). Confirm current requirements with the US Department of State before applying."}},{"@type":"Question","name":"Are passport photo requirements the same in every country?","acceptedAnswer":{"@type":"Answer","text":"No. Dimensions and other requirements can vary by country and application."}}]}</script>
+</head>
+<body>
+<div id="toastRoot" class="toast-root"></div>
+
+<header class="header">
+  <div class="header-inner">
+    <a class="logo" href="#" data-go="home" aria-label="PhotoPassPro Home">
+      <span class="brand-mark" aria-hidden="true"><i data-lucide="camera"></i></span>
+      <span class="brand-copy"><b>Passport Size Photo<span>Maker</span></b><small>PASSPORT PHOTOS MADE SIMPLE.</small></span>
+    </a>
+    <nav class="nav">
+      <a href="#" data-go="home">Home</a>
+      <button class="nav-drop">Passport Sizes <i data-lucide="chevron-down"></i>
+        <span class="menu">
+          <span data-go="sizes">All Countries</span><span data-country="USA">USA 2 × 2 in</span><span data-country="India">India 35 × 45 mm</span>
+        </span>
+      </button>
+      <button class="nav-drop">Tools <i data-lucide="chevron-down"></i>
+        <span class="menu">
+          <span data-modal="editor">Edit Photo</span><span data-action="print">A4 Print Sheet</span>
+        </span>
+      </button>
+      <button class="nav-drop">Help <i data-lucide="chevron-down"></i>
+        <span class="menu"><span data-modal="how">How It Works</span><span data-modal="faq">FAQ</span><span data-modal="privacy">Privacy</span></span>
+      </button>
+    </nav>
+    <div class="header-right">
+      <div class="language-selector" id="desktopLanguage">
+        <button class="language-btn" type="button" aria-haspopup="true" aria-expanded="false">
+          <span class="language-flag">🇺🇸</span><span class="language-current">English</span><i data-lucide="chevron-down"></i>
+        </button>
+        <div class="language-menu" role="menu">
+          <button type="button" data-language="en"><span data-flag-code="USA" class="language-option-flag"></span> English</button>
+          <button type="button" data-language="es"><span data-flag-code="Spain" class="language-option-flag"></span> Español</button>
+          <button type="button" data-language="fr"><span data-flag-code="France" class="language-option-flag"></span> Français</button>
+          <button type="button" data-language="de"><span data-flag-code="Germany" class="language-option-flag"></span> Deutsch</button>
+          <button type="button" data-language="pt"><span data-flag-code="Brazil" class="language-option-flag"></span> Português</button>
+          <button type="button" data-language="hi"><span data-flag-code="India" class="language-option-flag"></span> हिन्दी</button>
+          <button type="button" data-language="bn"><span data-flag-code="BD" class="language-option-flag"></span> বাংলা</button>
+          <button type="button" data-language="ja"><span data-flag-code="Japan" class="language-option-flag"></span> 日本語</button>
+        </div>
+      </div>
+      <button class="all-btn" data-go="sizes"><i data-lucide="grid-3x3"></i> All Sizes</button>
+      <button class="mobile-btn" id="mobileBtn"><i data-lucide="menu"></i></button>
+    </div>
+  </div>
+</header>
+
+<main>
+<section id="home" class="page active">
+  <div class="hero">
+    <div class="hero-text">
+      <span class="pill">FAST <b>•</b> FREE <b>•</b> HIGH QUALITY</span>
+      <h1>Passport Size<br><em>Photo Online</em></h1>
+      <p>Upload your photo and get passport size photos for any country in seconds.</p>
+      <ul class="features">
+        <li><i data-lucide="zap"></i>Resize to exact format — no crop</li>
+        <li><i data-lucide="shield-check"></i>High quality output</li>
+        <li><i data-lucide="lock-keyhole"></i>100% private – your photos are not stored</li>
+      </ul>
+    </div>
+    <div class="hero-art">
+      <div class="orb o1"></div><div class="orb o2"></div>
+      <div class="photo pile-left"><div class="person"></div></div>
+      <div class="photo pile-right"><div class="person"></div></div>
+      <div class="photo pile-main"><div class="person"></div></div>
+      <div class="note"><span data-i18n-source="Perfect">Perfect</span><br><span data-i18n-source="Size Every Time!">Size Every Time!</span> <i data-lucide="move-down-right"></i></div>
+    </div>
+  </div>
+
+  <div class="upload-layout">
+    <label id="dropZone" class="dropzone">
+      <input id="fileInput" type="file" accept="image/jpeg,image/png,image/webp" hidden>
+      <div class="upload-animation" aria-hidden="true">
+        <div class="upload-photo-card upload-card-back"></div>
+        <div class="upload-photo-card upload-card-front">
+          <i data-lucide="image"></i>
+        </div>
+        <span class="upload-arrow"><i data-lucide="arrow-up"></i></span>
+      </div>
+      <strong>Drag &amp; Drop Your Image Here</strong>
+      <span>or click to choose a photo</span>
+      <b class="choose"><i data-lucide="image"></i> Choose Photo</b>
+      <small>Supports: JPG, PNG, WEBP <b>|</b> Max size: 10MB</small>
+      <small class="auto-cutout-note"><i data-lucide="scan-face"></i> <span data-i18n-source="Professional automatic person detection &amp; background removal">Professional automatic person detection &amp; background removal</span></small>
+    </label>
+    <aside class="countries-mini">
+      <h3>Supported Countries</h3>
+      <div><span class="country-icon flag-static flag-usa" aria-label="USA flag"></span><b>USA</b><span>2 × 2 in</span></div>
+      <div><span class="country-icon flag-static flag-india" aria-label="India flag"></span><b>India</b><span>3.5 × 4.5 cm</span></div>
+      <div><span class="country-icon flag-static flag-japan" aria-label="Japan flag"></span><b>Japan</b><span>3.5 × 4.5 cm</span></div>
+      <div><span class="country-icon flag-static flag-aus" aria-label="Australia flag"></span><b>AUS</b><span>35–40 × 45–50 mm</span></div>
+      <div><span class="country-icon flag-static flag-bd" aria-label="Bangladesh flag"></span><b>BD</b><span>3.5 × 4.5 cm</span></div>
+      <div><span class="country-icon flag-static flag-indonesia" aria-label="Indonesia flag"></span><b>Indonesia</b><span>4 × 6 cm</span></div>
+      <div><span class="country-icon flag-static flag-china" aria-label="China flag"></span><b>China</b><span>33 × 48 mm</span></div>
+      <button data-go="sizes">and 50+ more...</button>
+    </aside>
+  </div>
+
+  <div class="trust">
+    <div><i data-lucide="user-round-check"></i><span><b>No Registration</b><small>Just upload and get photos</small></span></div>
+    <div><i data-lucide="zap"></i><span><b>Fast Processing</b><small>Get results in seconds</small></span></div>
+    <div><i data-lucide="printer"></i><span><b>Print Ready</b><small>High resolution output</small></span></div>
+  </div>
+
+  
+<div class="how">
+  <h2>How It Works?</h2>
+  <div class="steps">
+    <div><i class="num">1</i><i data-lucide="upload"></i><b>Upload Photo</b><small>Choose or drag &amp; drop<br>your image</small></div>
+    <div><i class="num">2</i><i data-lucide="settings-2"></i><b>Auto Adjust</b><small>We resize to the exact format<br>without cropping</small></div>
+    <div><i class="num">3</i><i data-lucide="image"></i><b>Preview &amp; Edit</b><small>Adjust if needed</small></div>
+    <div><i class="num">4</i><i data-lucide="download"></i><b>Download</b><small>Get your passport<br>photos instantly</small></div>
+  </div>
+</div>
+
+</section>
+
+<section id="loading" class="page">
+  <div class="loading-card">
+    <div class="loader"><i data-lucide="camera"></i></div>
+    <h2>Preparing Your Passport Photos</h2>
+    <p id="loadText">Reading your photo…</p>
+    <div class="progress"><span id="progress"></span></div>
+    <div class="load-meta"><b id="percent">0%</b><span><i data-lucide="lock"></i> Secure &amp; private</span></div>
+  </div>
+</section>
+
+<section id="result" class="page result-page">
+  <div class="ready">
+    <span><i data-lucide="check"></i></span>
+    <div><h2>Your Passport Photos Are Ready!</h2><p>Download, print or get multiple sizes for any country.</p></div>
+  </div>
+
+  <div class="result-grid">
+    <div class="result-preview card">
+      <div class="tabs">
+        <button class="active" data-tab="preview">Preview</button>
+        <button data-tab="single">Single Photo</button>
+        <button data-tab="sheet">Photo Sheet</button>
+      </div>
+      <div id="previewBox" class="preview-box">
+        <img id="previewImg" alt="Passport preview">
+      </div>
+      <div class="passport-colors" id="passportColors" hidden>
+        <div class="passport-colors-head"><span><i data-lucide="palette"></i> Passport Photo Background</span><small>Choose a color after Background Remove</small></div>
+        <div class="passport-color-list" role="group" aria-label="Passport photo background colors">
+          <button type="button" class="passport-color active" data-bg="transparent" title="Transparent"><span class="swatch swatch-transparent"></span><b>Transparent</b></button>
+          <button type="button" class="passport-color" data-bg="#ffffff" title="White"><span class="swatch" ></span><b>White</b></button>
+          <button type="button" class="passport-color" data-bg="#f7f7f2" title="Off White"><span class="swatch" ></span><b>Off White</b></button>
+          <button type="button" class="passport-color" data-bg="#dbeafe" title="Light Blue"><span class="swatch" ></span><b>Light Blue</b></button>
+          <button type="button" class="passport-color" data-bg="#eef1f4" title="Light Gray"><span class="swatch" ></span><b>Light Gray</b></button>
+          <button type="button" class="passport-color" data-bg="#eaf8ef" title="Soft Green"><span class="swatch" ></span><b>Soft Green</b></button>
+        </div>
+        <div class="custom-bg-row">
+          <label class="custom-color-picker"><span>Custom</span><input id="customBgColor" type="color" value="#ffffff" aria-label="Choose custom background color"></label>
+          <button type="button" id="applyCustomBg" class="custom-bg-btn">Apply Custom Color</button>
+          <label class="custom-color-picker"><span>Color 2</span><input id="customBgColor2" type="color" value="#dbeafe" aria-label="Choose second custom color"></label>
+          <label class="custom-color-picker"><span>Color 3</span><input id="customBgColor3" type="color" value="#ffffff" aria-label="Choose third custom color"></label>
+          <button type="button" id="addGradientBg" class="custom-bg-btn">Apply Multi-Color</button>
+        </div>
+      </div>
+      <div class="result-actions">
+        <button data-modal="editor"><i data-lucide="pencil"></i>Edit Photo</button>
+        
+        <button id="removeBgBtn" type="button"><i data-lucide="eraser"></i>Background Remove</button>
+        <button data-action="retake"><i data-lucide="rotate-ccw"></i>Retake</button>
+      </div>
+    </div>
+
+    <div class="format card">
+      <small>Passport Size Format</small>
+      <strong id="formatSize">2 × 2 IN</strong>
+      <span id="formatMetric">(51 mm × 51 mm)</span>
+      <b id="formatCountry" class="format-country">USA</b>
+      <button class="download primary" data-action="download"><i data-lucide="download"></i> Download <span id="downloadText">2 × 2</span></button>
+    </div>
+
+    <div class="prints card">
+      <small>A4 Print Layout</small>
+      <div id="miniSheet" class="mini-sheet"></div>
+      <b id="copyLabel">1 A4 Page · 6 Photos</b>
+      <div class="print-buttons">
+        <button data-modal="pages"><i data-lucide="copy"></i>A4 Pages</button>
+        <button data-action="print"><i data-lucide="printer"></i>Print</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="other card">
+    <h3 class="other-title"><i data-lucide="globe-2"></i><span>Get Photos in Other Country Sizes</span></h3>
+    <div id="countryGrid" class="country-grid"></div>
+    <button class="zip" data-action="zip"><i data-lucide="file-archive"></i><span><b>Download All Sizes (ZIP)</b><small>Get all country sizes in one file</small></span></button>
+  </div>
+  
+<div class="how">
+  <h2>How It Works?</h2>
+  <div class="steps">
+    <div><i class="num">1</i><i data-lucide="upload"></i><b>Upload Photo</b><small>Choose or drag &amp; drop<br>your image</small></div>
+    <div><i class="num">2</i><i data-lucide="settings-2"></i><b>Auto Adjust</b><small>We resize to the exact format<br>without cropping</small></div>
+    <div><i class="num">3</i><i data-lucide="image"></i><b>Preview &amp; Edit</b><small>Adjust if needed</small></div>
+    <div><i class="num">4</i><i data-lucide="download"></i><b>Download</b><small>Get your passport<br>photos instantly</small></div>
+  </div>
+</div>
+
+</section>
+
+<section id="sizes" class="page sizes-page">
+  <div class="page-title"><span class="pill">PASSPORT PHOTO SIZES</span><h1>Country Photo Size Guide</h1><p>Choose a country to use its passport-photo format.</p></div>
+  <div id="sizesGrid" class="sizes-grid"></div>
+</section>
+</main>
+<section class="seo-content" aria-labelledby="passport-photo-guide">
+<div class="seo-content-inner">
+<h2 id="passport-photo-guide">Passport Photo Size Guide &amp; Online Photo Maker</h2>
+<p>PhotoPassPro combines a browser-based passport photo maker with a country photo-size guide. Upload a JPG, PNG, or WEBP image, select the required country format, and prepare a correctly sized photo for printing or digital use.</p>
+<h3>Common passport photo sizes</h3>
+<p>Photo requirements are not identical worldwide. The United States commonly uses a 2 × 2 inch format, while many countries use metric formats such as 35 × 45 mm. Application rules can also differ by passport, visa, or document type, so always verify the final requirement with the official authority before submitting a photo.</p>
+<div class="seo-size-grid">
+<button type="button" data-modal="usa-size" class="seo-size-card"><strong>USA Passport Photo</strong><br><span>2 × 2 inches</span></button>
+<button type="button" data-modal="india-size" class="seo-size-card"><strong>India Passport Photo</strong><br><span>35 × 45 mm guide</span></button>
+<button type="button" data-modal="uk-size" class="seo-size-card"><strong>UK Passport Photo</strong><br><span>35 × 45 mm guide</span></button>
+<button type="button" data-modal="canada-size" class="seo-size-card"><strong>Canada Passport Photo</strong><br><span>50 × 70 mm guide</span></button>
+</div>
+<h3>How to prepare a passport photo online</h3>
+<ol><li>Choose a clear, recent photograph with the subject facing the camera.</li><li>Upload the image using the photo maker above.</li><li>Select the country and review the displayed dimensions.</li><li>Download or print the result, then check the current official application instructions.</li></ol>
+<h3>Frequently asked questions</h3>
+<details><summary>Can I make a passport-size photo online?</summary><p>Yes. The tool can resize and prepare an uploaded image in a selected photo format directly in the browser.</p></details>
+<details><summary>What size is a US passport photo?</summary><p>The commonly used US passport photo format is 2 × 2 inches (51 × 51 mm). Confirm the current requirements with the US Department of State before applying.</p></details>
+<details><summary>Are passport photo requirements the same in every country?</summary><p>No. Dimensions, background, facial position, and digital-file requirements can vary by country and application.</p></details>
+<p class="seo-disclaimer">This is an independent informational website. Requirements may change and this site does not guarantee that a photo will be accepted by a government or application center.</p>
+</div></section>
+<footer class="country-footer">
+  <div class="country-footer__inner">
+    <div class="country-footer__brand">
+      <a href="#" class="country-footer__logo" data-go="home" aria-label="PhotoPassPro Home">
+        <span class="footer-brand-mark" aria-hidden="true"><i data-lucide="camera"></i></span>
+        <span class="footer-brand-copy"><b>Passport Size Photo<span>Maker</span></b><small>PASSPORT PHOTOS MADE SIMPLE.</small></span>
+      </a>
+      <p data-i18n-source="Passport photos made simple. Get the correct photo size for countries around the world.">Passport photos made simple. Get the correct photo size for countries around the world.</p>
+    </div>
+
+    <div class="country-footer__social">
+      <h4>Follow Us</h4>
+      <div class="social" aria-label="Social media links">
+        <a class="social-btn facebook" href="#" aria-label="Facebook" target="_blank" rel="noopener noreferrer"><i class="fa-brands fa-facebook-f"></i></a>
+        <a class="social-btn twitter" href="#" aria-label="X" target="_blank" rel="noopener noreferrer"><i class="fa-brands fa-x-twitter"></i></a>
+        <a class="social-btn instagram" href="#" aria-label="Instagram" target="_blank" rel="noopener noreferrer"><i class="fa-brands fa-instagram"></i></a>
+        <a class="social-btn youtube" href="#" aria-label="YouTube" target="_blank" rel="noopener noreferrer"><i class="fa-brands fa-youtube"></i></a>
+        <a class="social-btn linkedin" href="#" aria-label="LinkedIn" target="_blank" rel="noopener noreferrer"><i class="fa-brands fa-linkedin-in"></i></a>
+      </div>
+    </div>
+  </div>
+
+  <div class="country-footer__line"></div>
+
+  <div class="country-footer__bottom">
+    <span data-i18n-source="© 2026 PPassport Size Photo Maker. All rights reserved.">© 2026 Passport Size Photo Maker. All rights reserved.</span>
+    <nav class="footer-legal-links" aria-label="Legal and information links">
+      <button type="button" data-modal="about">About</button>
+      <button type="button" data-modal="contact">Contact</button>
+      <button type="button" data-modal="privacy">Privacy Policy</button>
+      <button type="button" data-modal="terms">Terms</button>
+      <button type="button" data-modal="disclaimer">Disclaimer</button>
+    </nav>
+  </div>
+</footer>
+
+<div id="modalLayer" class="modal-layer">
+  <div class="modal">
+    <button id="modalClose" class="modal-close"><i data-lucide="x"></i></button>
+    <div id="modalBody"></div>
+  </div>
+</div>
+<input id="retakeInput" type="file" accept="image/jpeg,image/png,image/webp" hidden>
+
+<script src="js/app.js"></script>
+
+</body>
+</html>
